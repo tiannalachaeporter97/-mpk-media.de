@@ -1,173 +1,228 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-
-
-<meta name="google-site-verification" content="mM25F8EL0nbxRdU77gHeyY0QLPygD2WYjY54B18MHU4" />
-  
+    <meta name="google-site-verification" content="mM25F8EL0nbxRdU77gHeyY0QLPygD2WYjY54B18MHU4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FameLedger | Die Ökonomie von Hollywood</title>
+    <meta name="description" content="MPK MEDIA provides elite financial analysis of the entertainment industry. Coverage includes Hollywood accounting, smart contracts, box office economics, and AI trends.">
+    <meta name="author" content="MPK MEDIA LLC">
+    
+    <title>MPK MEDIA | Entertainment Industry Financial Intelligence</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #0f172a;
-            --accent-color: #3b82f6;
+            --primary-color: #0f172a; /* Slate 900 */
+            --secondary-color: #334155; /* Slate 700 */
+            --accent-color: #2563eb; /* Blue 600 */
+            --text-body: #475569; /* Slate 600 */
+            --bg-light: #f8fafc; /* Slate 50 */
+            --border-color: #e2e8f0;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-light);
+            color: var(--text-body);
+            overflow-x: hidden;
+            line-height: 1.7;
         }
-        h1, h2, h3, .navbar-brand {
+        h1, h2, h3, h4, .navbar-brand {
             font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+        h1 { margin-bottom: 1.5rem; font-weight: 700; }
+        h3 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700; }
+        
+        /* Navigation */
+        .navbar {
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
         .navbar-brand {
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--primary-color) !important;
+            letter-spacing: -0.5px;
             cursor: pointer;
         }
-        /* SAFETY: Distinct background and spacing for Ad containers to prevent accidental clicks */
-        .ad-container {
-            background: #eee;
+        .nav-link {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin: 0 8px;
+            transition: color 0.2s;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+        
+        /* AD CONTAINERS - Crucial for Compliance */
+        .ad-wrapper {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #888;
-            font-size: 0.8rem;
-            border: 1px solid #ddd;
             overflow: hidden;
+            margin: 2.5rem 0;
             position: relative;
+            border-radius: 4px;
         }
         .ad-label {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #ccc;
-            color: #fff;
-            font-size: 10px;
-            padding: 2px 4px;
-            z-index: 10;
+            align-self: center;
+            background: #cbd5e1;
+            color: #475569;
+            font-size: 0.6rem;
+            padding: 1px 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            border-radius: 0 0 4px 4px;
         }
-        .top-ad-bar {
-            min-height: 90px;
-            margin-bottom: 30px; /* Increased spacing */
-        }
-        .sidebar-ad {
-            width: 100%;
-            height: 250px;
-            margin-bottom: 40px; /* Increased spacing */
-        }
-        .article-ad {
-            margin: 3rem 0; /* Clear separation from text */
-            padding: 1rem;
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-        }
+        .top-ad { min-height: 100px; width: 100%; max-width: 970px; margin: 2rem auto; }
+        .sidebar-ad { min-height: 280px; width: 100%; }
+        .in-article-ad { min-height: 280px; margin: 3rem 0; background: #fff; border: 1px dashed #cbd5e1; }
+        .video-ad-slot { aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; color: #fff; }
+
+        /* CONTENT STYLING */
         .article-header-img {
             width: 100%;
-            height: 400px;
+            height: 450px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .author-box {
-            background: white;
-            padding: 20px;
-            border-left: 4px solid var(--accent-color);
-            margin-top: 40px;
-        }
-        .legal-footer {
-            background: var(--primary-color);
-            color: #ccc;
-            padding: 40px 0;
-            margin-top: 60px;
-            font-size: 0.9rem;
-        }
-        .legal-footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .legal-footer a:hover {
-            text-decoration: underline;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         .content-body p {
             font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #1e293b;
+            margin-bottom: 2rem;
         }
         .stat-card {
             background: #fff;
-            border: 1px solid #e5e7eb;
-            padding: 15px;
+            border: 1px solid var(--border-color);
+            padding: 25px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
         }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-color);
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .author-box {
+            background: white;
+            padding: 30px;
+            border-top: 4px solid var(--accent-color);
+            margin-top: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        /* Cookie Banner Styling */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        
+        /* UTILS */
+        .badge-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.6em 1.2em;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            font-weight: 600;
+        }
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #334155;
             background: #fff;
-            padding: 15px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1050;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            border-top: 3px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
         }
-        /* Page Navigation Utility */
+
+        /* PAGE ROUTING */
         .page-section {
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.5s;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
         .page-section.active {
-            display: block; /* Shown when active */
+            display: block;
+            opacity: 1;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        /* FOOTER */
+        .legal-footer {
+            background: var(--primary-color);
+            color: #94a3b8;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+            font-size: 0.9rem;
         }
-        .nav-link {
-            cursor: pointer;
+        .legal-footer h5 { color: #fff; margin-bottom: 1.5rem; }
+        .legal-footer a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
+        .legal-footer a:hover { color: #fff; text-decoration: underline; }
+
+        /* COOKIE BANNER */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 2000;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex; 
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .cookie-banner { flex-direction: column; text-align: center; }
+            .cookie-buttons { margin-top: 15px; width: 100%; display: flex; gap: 10px; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" onclick="navigateTo('home')">FameLedger</a>
+            <a class="navbar-brand" onclick="navigateTo('home')">MPK MEDIA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('networth')">Vermögensanalyse</a></li>
-                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('contracts')">Vertragsrecht</a></li>
-                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('boxoffice')">Kino-Ökonomie</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('home')">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('networth')">Net Worth</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('contracts')">Legal</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('boxoffice')">Markets</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('streaming')">Streaming</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('tech')">AI Tech</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('video')"><i class="fas fa-play-circle"></i> Video</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="navigateTo('contact')">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-3">
-        <!-- Safety: Added explicit label inside container -->
-        <div class="ad-container top-ad-bar">
-            <span class="ad-label">Anzeige</span>
-            <span>Google AdSense Slot (728x90)</span>
+    <div class="container">
+        <div class="ad-wrapper top-ad">
+            <span class="ad-label">Advertisement</span>
+            <div class="text-muted small">Google AdSense Leaderboard Slot</div>
         </div>
     </div>
 
@@ -176,360 +231,640 @@
             
             <div class="col-lg-8" id="main-content-area">
                 
-                <!-- PAGE: HOME (The Article) -->
                 <div id="page-home" class="page-section active">
                     <article>
-                        <span class="badge bg-primary mb-2">Finanzanalyse</span>
-                        <h1 class="mb-3">Die "Backend"-Milliardäre: Wie Smart Contracts den Reichtum in Hollywood verändern</h1>
-                        <p class="text-muted">Von <strong>Sarah Jenkins, Finanzanalystin</strong> | Aktualisiert am 2. Dez. 2025</p>
+                        <span class="badge bg-primary badge-category">Financial Analysis</span>
+                        <h1 class="display-5 fw-bold">The "Backend" Billionaires: How Equity Deals Are Shattering Hollywood Pay Scales</h1>
+                        <p class="text-muted border-bottom pb-4 mb-4">
+                            By <strong>Sarah Jenkins, Senior Analyst</strong> | Updated: Dec 10, 2025 | Read time: 8 min
+                        </p>
                         
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=800" alt="Hollywood Finanzen" class="article-header-img">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=800" alt="Hollywood Finance" class="article-header-img">
 
                         <div class="content-body">
-                            <p><strong>Während sich die Boulevardpresse darauf konzentriert, wer mit wem ausgeht, findet die wahre Geschichte Hollywoods im Kleingedruckten der Vertragsverhandlungen statt. Die Ära des 20-Millionen-Dollar-Schecks im Voraus stirbt aus. An ihre Stelle tritt? Der "Backend-Point".</strong></p>
+                            <p class="lead"><strong>While the tabloids obsess over red carpet fashion, the real revolution is happening in the boardroom. The era of the $20 million upfront check is effectively over. The new gold standard is "Equity" and "Backend Points."</strong></p>
 
-                            <p>In dieser Analyse untersuchen wir, wie A-List-Talente Kapitalbeteiligungen an Marken und Produktionsstudios nutzen, um ein Vermögen zu generieren, das die traditionellen Kinoeinnahmen in den Schatten stellt. Das ist kein Glück; es ist eine ausgeklügelte Finanzstrategie, die mehr Risikokapital (Venture Capital) als Schauspielerei ähnelt.</p>
+                            <p>In this deep-dive analysis, we examine how A-list talent is leveraging equity stakes in brands and production studios to generate wealth that dwarfs traditional box office earnings. This isn't luck; it's a sophisticated financial strategy that resembles Venture Capital more than traditional acting.</p>
 
-                            <!-- In-Article Ad: Safely spaced with 'my-5' (margin y-axis 5) -->
-                            <div class="article-ad text-center">
-                                <small class="d-block text-muted mb-2 text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Anzeige</small>
-                                <div style="height: 100px; background: #ddd; display: flex; align-items: center; justify-content: center;">
-                                    [Google Ads Native Slot]
-                                </div>
+                            <h3>From Paycheck to Portfolio</h3>
+                            <p>Historically, actors were paid from "net profits"—a number often reduced to zero through creative "Hollywood Accounting." Today, savvy agents negotiate for "First Dollar Gross." This means the talent gets a percentage of box office revenue <em>before</em> the studio deducts costs.</p>
+                            
+                            <p>But even that is no longer enough. The trend is shifting toward corporate ownership. <strong>Ryan Reynolds</strong> is the prime example. Instead of taking a fee for commercials, he bought stakes in Aviation Gin and Mint Mobile. His exit from Mint Mobile (sold to T-Mobile US) reportedly netted him over $300 million—more than he earned from all "Deadpool" films combined.</p>
+
+                            <div class="ad-wrapper in-article-ad">
+                                <span class="ad-label">Advertisement</span>
+                                <div class="text-muted small">Google AdSense In-Article Slot</div>
                             </div>
 
-                            <h3>Die Mathematik des "First Dollar Gross"</h3>
-                            <p>Historisch gesehen wurden Schauspieler aus "Nettogewinnen" bezahlt – eine Zahl, die durch kreative Buchführung oft auf Null reduziert wurde. Heute verhandeln clevere Agenten über "First Dollar Gross". Das bedeutet, dass das Talent einen Prozentsatz der Kinoeinnahmen erhält, <em>bevor</em> das Studio die Kosten abzieht.</p>
+                            <h3>The Precedent: Scarlett Johansson vs. Disney</h3>
+                            <p>A pivotal moment for the industry was the "Black Widow" lawsuit. Johansson's contract guaranteed bonuses based on theatrical box office performance. When Disney released the film simultaneously on Disney+, theatrical revenue plummeted. The lawsuit ended in a settlement reportedly worth over $40 million. The lesson? Contracts must now explicitly define "Streaming Buyouts." Stars are now demanding their potential backend losses be paid out <em>before</em> filming begins.</p>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="stat-card">
-                                        <div class="stat-number">15%</div>
-                                        <div class="text-muted">Ø Backend-Deal</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="stat-card">
-                                        <div class="stat-number">$40M+</div>
-                                        <div class="text-muted">Potenzieller Gewinn</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p>Betrachten Sie die jüngsten Geschäftsstrukturen für Streaming-Plattformen. Ohne Kinodaten fordern Stars nun "Buyout"-Klauseln, die die prognostizierten Backend-Einnahmen im Voraus berechnen. Dies verlagert das Risiko vollständig auf das Studio.</p>
-
-                            <h3>Die Spirituosen-Arbitrage</h3>
-                            <p>Jenseits von Filmen hat sich der "George-Clooney-Effekt" durchgesetzt. Prominente erkennen, dass es deutlich weniger einbringt, ihr Gesicht für eine Kampagne zu leihen, als Eigenkapital zu besitzen. Ryan Reynolds (Aviation Gin) und Clooney (Casamigos) haben bewiesen, dass der Multiplikator bei einer Übernahme das Zehnfache dessen einbringen kann, was eine Filmkarriere in einem ganzen Leben produziert.</p>
-
-                            <blockquote class="blockquote border-start border-4 border-primary ps-3 my-4">
-                                "Der moderne Prominente ist kein Angestellter des Studios mehr; er ist eine diversifizierte Holdinggesellschaft."
+                            <blockquote>
+                                "The modern celebrity is no longer a studio employee; they are a diversified holding company using media as a marketing arm."
                             </blockquote>
 
-                            <p><strong>Fazit:</strong> Wenn Sie sehen, wie ein Prominenter eine neue Tequila- oder Hautpflegelinie auf den Markt bringt, tun Sie dies nicht als Eitelkeit ab. Analysieren Sie es als Serie-A-Finanzierungsrunde. Sie nutzen ihr Publikum als Kundenakquisitionskosten (CAC) für ein Unternehmen, das sie verkaufen wollen.</p>
+                            <h3>The Liquor Arbitrage</h3>
+                            <p>Beyond film, the "George Clooney Effect" is dominant. Celebrities realize that lending their face to a campaign pays significantly less than owning equity. Clooney (Casamigos) and The Rock (Teremana Tequila) use their audience as a free marketing machine to drive Customer Acquisition Costs (CAC) to near zero. This makes their brands incredibly attractive acquisition targets for conglomerates like Diageo or Pernod Ricard.</p>
+
+                            <p><strong>Conclusion:</strong> When you see a celebrity launching a new tequila or skincare line, do not dismiss it as vanity. Analyze it as a Series A funding round.</p>
                         </div>
 
                         <div class="author-box">
-                            <h5>Über die Autorin</h5>
-                            <p class="mb-0">Sarah Jenkins ist eine ehemalige Unterhaltungsanwältin, die zur Finanzjournalistin wurde. Sie spezialisiert sich auf die Analyse der Schnittmenge von Prominentenverträgen, Markenwert und Medienökonomie.</p>
+                            <h5>About the Author</h5>
+                            <p class="mb-0 small">Sarah Jenkins is a former entertainment attorney turned financial journalist. She specializes in analyzing the intersection of celebrity contracts, brand equity, and media economics for MPK MEDIA.</p>
                         </div>
                     </article>
                 </div>
 
-                <!-- PAGE: NET WORTH ANALYSIS -->
                 <div id="page-networth" class="page-section">
-                    <span class="badge bg-success mb-2">Daten & Fakten</span>
-                    <h1 class="mb-4">Vermögensanalyse: Top 10 Hollywood-Mogule</h1>
-                    <p class="lead">Unser Echtzeit-Tracker der wohlhabendsten Persönlichkeiten in der Unterhaltungsbranche, bereinigt um Inflation und jüngste Akquisitionen.</p>
-                    
-                    <table class="table table-hover mt-4 border">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Rang</th>
-                                <th>Name</th>
-                                <th>Geschätztes Vermögen</th>
-                                <th>Hauptquelle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>George Lucas</td>
-                                <td>$5.5 Mrd.</td>
-                                <td>Lucasfilm Verkauf</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Steven Spielberg</td>
-                                <td>$4.8 Mrd.</td>
-                                <td>Produktion / Regie</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Oprah Winfrey</td>
-                                <td>$2.5 Mrd.</td>
-                                <td>Medienimperium</td>
-                            </tr>
-                             <tr>
-                                <td>4</td>
-                                <td>Rihanna</td>
-                                <td>$1.4 Mrd.</td>
-                                <td>Fenty Beauty</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Peter Jackson</td>
-                                <td>$1.0 Mrd.</td>
-                                <td>Weta Digital Verkauf</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="article-ad text-center">
-                        <small class="d-block text-muted mb-2 text-uppercase" style="font-size: 10px;">Anzeige</small>
-                        <div style="height: 100px; background: #ddd; display: flex; align-items: center; justify-content: center;">
-                            [Google Ads Native Slot]
-                        </div>
-                    </div>
-
-                    <h3 class="mt-4">Methodik</h3>
-                    <p>Unsere Schätzungen basieren auf öffentlich zugänglichen Informationen über Aktienbestände, Immobilien, Kunstsammlungen und Gehälter. Wir ziehen geschätzte Steuern und Maklergebühren ab, um ein konservatives Nettovermögen zu ermitteln.</p>
-                </div>
-
-                <!-- PAGE: CONTRACT LAW -->
-                <div id="page-contracts" class="page-section">
-                    <span class="badge bg-warning text-dark mb-2">Recht & Gesetz</span>
-                    <h1 class="mb-4">Vertragsrecht: Die "Pay-or-Play" Klausel erklärt</h1>
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800" alt="Vertrag" class="article-header-img" style="height: 300px;">
-                    
-                    <p class="lead">Es ist die mächtigste Klausel in Hollywood. Warum Schauspieler Millionen verdienen, selbst wenn der Film nie gedreht wird.</p>
+                    <span class="badge bg-success badge-category">Data & Intelligence</span>
+                    <h1 class="mb-4">Net Worth Analysis: Top 10 Hollywood Moguls (2025 Update)</h1>
                     
                     <div class="content-body">
-                        <p>Eine <strong>"Pay-or-Play"</strong>-Bestimmung in einem Talentvertrag garantiert, dass das Talent bezahlt wird, sobald bestimmte Bedingungen erfüllt sind, unabhängig davon, ob das Studio die Dienste des Talents tatsächlich nutzt.</p>
+                        <p class="lead">Our real-time tracker of the wealthiest figures in the entertainment industry, adjusted for inflation, taxes, and recent acquisitions.</p>
                         
-                        <h3>Warum existiert diese Klausel?</h3>
-                        <p>Wenn ein A-List-Schauspieler sich für ein Projekt verpflichtet, blockiert er oft 6-12 Monate seines Zeitplans. Wenn das Studio das Projekt in letzter Minute absagt, hat der Schauspieler andere lukrative Angebote verpasst. Diese Klausel dient als Versicherung gegen Opportunitätskosten.</p>
-
-                        <div class="alert alert-info border-start border-5 border-info">
-                            <strong>Wussten Sie schon?</strong> Johnny Depp erhielt angeblich sein volles Gehalt für den dritten Teil von "Phantastische Tierwesen", obwohl er nur eine einzige Szene gedreht hatte, bevor er gebeten wurde, zurückzutreten – dank seiner Pay-or-Play-Klausel.
+                        <div class="alert alert-light border shadow-sm mb-4">
+                            <strong>Methodology:</strong> Unlike lists that focus solely on salary fees, the MPK MEDIA Index (MMI) accounts for the value of held intellectual property rights, real estate portfolios, and post-tax liquid assets (conservative estimate).
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover mt-4 border align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Est. Net Worth</th>
+                                        <th>Primary Source</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1</strong></td>
+                                        <td>George Lucas</td>
+                                        <td class="text-success fw-bold">$5.5 Bn</td>
+                                        <td>Lucasfilm Sale (Disney Stock)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>Steven Spielberg</td>
+                                        <td class="text-success fw-bold">$4.8 Bn</td>
+                                        <td>DreamWorks, Amblin Partners, IP Rights</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3</strong></td>
+                                        <td>Oprah Winfrey</td>
+                                        <td class="text-success fw-bold">$2.5 Bn</td>
+                                        <td>Harpo Productions, OWN Network, Real Estate</td>
+                                    </tr>
+                                     <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>Rihanna</td>
+                                        <td class="text-success fw-bold">$1.4 Bn</td>
+                                        <td>Fenty Beauty (50% ownership via LVMH deal)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5</strong></td>
+                                        <td>Peter Jackson</td>
+                                        <td class="text-success fw-bold">$1.0 Bn</td>
+                                        <td>Weta Digital Sale (Unity Software)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        <h3>Häufige Fallstricke</h3>
+                        <div class="ad-wrapper in-article-ad">
+                            <span class="ad-label">Advertisement</span>
+                            <div class="text-muted small">Google AdSense Matched Content</div>
+                        </div>
+
+                        <h3 class="mt-4">Watchlist: The Rising Stars</h3>
+                        <p>These figures are rapidly approaching the "Billionaire Club," primarily through business ventures unrelated to their acting careers.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ryan Reynolds</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Est. $650 M</h6>
+                                        <p class="card-text small">Massive exits with Aviation Gin and Mint Mobile. Current focus: Wrexham AFC (sports franchise valuation growth).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Reese Witherspoon</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Est. $440 M</h6>
+                                        <p class="card-text small">Sale of her production company "Hello Sunshine" to Blackstone. Pioneer of content-driven brand value.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-contracts" class="page-section">
+                    <span class="badge bg-warning text-dark badge-category">Legal & Deals</span>
+                    <h1 class="mb-4">Contract Law: The "Pay-or-Play" Clause Deep Dive</h1>
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800" alt="Contract" class="article-header-img" style="height: 300px;">
+                    
+                    <div class="content-body">
+                        <p class="lead">It is the most powerful clause in Hollywood. Why actors get paid millions even if the movie is never made or they are cut from the final edit.</p>
+                        
+                        <p>A <strong>"Pay-or-Play"</strong> provision in a talent contract guarantees that the talent gets paid once certain conditions are met, regardless of whether the studio actually utilizes the talent's services. It is essentially a "no-fault" income guarantee.</p>
+                        
+                        <h3>Why does this clause exist?</h3>
+                        <p>When an A-list actor commits to a project, they often block out 6 to 12 months of their schedule. During this time, they must refuse other offers. If the studio cancels the project at the last minute (due to budget issues, script changes, or management turnover), the actor has suffered massive opportunity costs. The Pay-or-Play clause shifts this risk from the individual to the corporation.</p>
+
+                        <h3>The Agent's Checklist</h3>
+                        <p>What do top L.A. attorneys try to negotiate into (or out of) these contracts?</p>
+                        <ul class="list-group list-group-flush mb-4 shadow-sm rounded">
+                            <li class="list-group-item">
+                                <strong>✅ Defined Start Date:</strong> Pay-or-Play must trigger by a fixed date, not just "Principal Photography" (which can be delayed indefinitely).
+                            </li>
+                            <li class="list-group-item">
+                                <strong>✅ No Offset Clause:</strong> Studios want to deduct income from replacement jobs from the Pay-or-Play payout. Stars reject this.
+                            </li>
+                            <li class="list-group-item">
+                                <strong>✅ Force Majeure Cap:</strong> How long can the studio suspend payment during an "Act of God" (strikes, pandemics) before the contract is voided? The standard is now 4-8 weeks.
+                            </li>
+                        </ul>
+
+                        <div class="ad-wrapper in-article-ad">
+                            <span class="ad-label">Advertisement</span>
+                            <div class="text-muted small">Google AdSense Slot</div>
+                        </div>
+
+                        <h3>Pitfalls: The Morality Clause</h3>
+                        <p>Studios often attempt to leverage "Morality Clauses" to void Pay-or-Play obligations. If an actor is involved in a scandal, the studio may terminate the contract for cause without payment. The exact legal definition of "scandal" is often the subject of bitter arbitration in Beverly Hills.</p>
+                    </div>
+                </div>
+
+                <div id="page-boxoffice" class="page-section">
+                    <span class="badge bg-danger badge-category">Market Analysis</span>
+                    <h1 class="mb-4">Box Office Economics: The "Multiplier" Effect and PVOD</h1>
+                    
+                    <div class="content-body">
+                        <p class="lead">How does a studio decide if a movie is a flop or a hit? The simple answer "Revenue minus Budget" is almost always wrong.</p>
+
+                        <div class="row mb-4 g-3">
+                            <div class="col-md-4">
+                                <div class="stat-card bg-white h-100">
+                                    <h5 class="text-muted small text-uppercase">Global Box Office</h5>
+                                    <div class="fw-bold fs-4 text-dark">$34.2 Bn</div>
+                                    <small class="text-success">↑ 8% YoY</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card bg-white h-100">
+                                    <h5 class="text-muted small text-uppercase">Streaming Share</h5>
+                                    <div class="fw-bold fs-4 text-dark">58%</div>
+                                    <small class="text-muted">Total Market</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-card bg-white h-100">
+                                    <h5 class="text-muted small text-uppercase">China Market</h5>
+                                    <div class="fw-bold fs-4 text-danger">-12%</div>
+                                    <small class="text-muted">Import Quota</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>The "2.5x" Rule</h3>
+                        <p>A film is traditionally considered profitable (Break-Even) if it earns <strong>2.5 times</strong> its production budget at the global box office. Why is this factor so high?</p>
+                        <ol>
+                            <li><strong>Exhibitor Split:</strong> Theaters keep on average 40-50% of revenue. In China, the government/cinemas keep up to 75%.</li>
+                            <li><strong>P&A (Prints & Advertising):</strong> Marketing costs are often <em>not</em> included in the production budget. For a Marvel blockbuster, these costs can add another $150 million.</li>
+                        </ol>
+
+                        <h3 class="mt-4">The New Reality: PVOD & Home Entertainment</h3>
+                        <p>Premium Video on Demand (PVOD) has radically altered the equation since 2020. Because studios keep about 80% of digital sales (iTunes, Amazon) compared to 50% in theaters, films with lower box office returns can reach profitability sooner.</p>
+                        <p>This has led to a "Shortened Window" strategy. Films stay exclusive in theaters for only 17 to 30 days before moving to digital, allowing the studio to use the theatrical marketing campaign to drive digital sales ("Drafting").</p>
+                    </div>
+                </div>
+
+                <div id="page-streaming" class="page-section">
+                    <span class="badge bg-secondary badge-category">Streaming Economics</span>
+                    <h1 class="mb-4">The Churn War: Why Subscriber Growth is a Vanity Metric</h1>
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800" alt="Streaming TV" class="article-header-img" style="height: 300px;">
+                    
+                    <div class="content-body">
+                        <p class="lead">Wall Street has stopped caring about how many subscribers Netflix or Disney+ add every quarter. The new metric that matters is ARPU (Average Revenue Per User) and Churn Rate.</p>
+
+                        <h3>The Problem with "Hit-Driven" Subscription Models</h3>
+                        <p>Consumers have become savvy "platform hoppers." They subscribe to HBO Max for the duration of "House of the Dragon" and cancel the moment the finale airs. This behavior spikes the Churn Rate.</p>
+                        
+                        <div class="ad-wrapper in-article-ad">
+                            <span class="ad-label">Advertisement</span>
+                            <div class="text-muted small">Google AdSense - Streaming Services</div>
+                        </div>
+
+                        <p>To combat this, streamers are pivoting to:</p>
                         <ul>
-                            <li><strong>Höhere Gewalt:</strong> Studios versuchen oft, Klauseln für "Höhere Gewalt" (Force Majeure) einzufügen, um Zahlungen bei Pandemien oder Streiks zu vermeiden.</li>
-                            <li><strong>Minderungspflicht:</strong> Einige Verträge verlangen, dass der Schauspieler versucht, andere Arbeit zu finden, wobei das neue Einkommen vom Pay-or-Play-Betrag abgezogen wird.</li>
+                            <li><strong>Ad-Supported Tiers:</strong> Lower entry price reduces churn. Interestingly, ARPU on ad-tiers is often higher than premium tiers due to ad revenue.</li>
+                            <li><strong>Bundling:</strong> The "Great Re-Bundling" is here. Disney selling Hulu/Disney+/ESPN+ together creates "stickiness." It is harder to cancel a bundle than a single app.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- PAGE: BOX OFFICE ECONOMICS -->
-                <div id="page-boxoffice" class="page-section">
-                    <span class="badge bg-danger mb-2">Marktanalyse</span>
-                    <h1 class="mb-4">Kino-Ökonomie: Der "Multiplier" Effekt</h1>
+                <div id="page-tech" class="page-section">
+                    <span class="badge bg-info text-dark badge-category">AI & Technology</span>
+                    <h1 class="mb-4">Artificial Intelligence: The Death of the Background Actor?</h1>
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Technology" class="article-header-img" style="height: 300px;">
+
+                    <div class="content-body">
+                        <p class="lead">The greatest fear of the acting unions has become reality: Digital Replicas and AI-generated backgrounds are changing film production cost structures forever.</p>
+
+                        <h3>The "Digital Replica" Issue</h3>
+                        <p>In the 2023 SAG-AFTRA negotiations, one issue took center stage: The studios' right to scan a background actor once, pay them for a day, and then use their digital likeness "in perpetuity" across any film in the universe. Without the new protection rules, this would have effectively extinguished the profession of background acting.</p>
+                        
+                        <h3>De-Aging and Deepfakes as an Asset Class</h3>
+                        <p>Harrison Ford in "Indiana Jones 5" demonstrated what is possible. Disney and Lucasfilm are betting heavily on proprietary AI that de-ages faces. Financially, this means:</p>
+                        <ul>
+                            <li><strong>Extending LTV (Lifetime Value):</strong> A star can play their role decades longer.</li>
+                            <li><strong>Estate Management:</strong> Deceased actors (like James Dean) can be "recast." This raises complex questions about personality rights: Who collects the fee? The heirs? Or the studio that owns the scans?</li>
+                        </ul>
+
+                        <p><strong>Outlook:</strong> We expect that by 2027, up to 30% of VFX budgets will shift from human labor to pure compute costs. For investors in tech infrastructure, Hollywood is a new growth market.</p>
+                    </div>
+                </div>
+
+                <div id="page-video" class="page-section">
+                    <span class="badge bg-dark badge-category">Video Insights</span>
+                    <h1 class="mb-4">MPK MEDIA: Market Briefings</h1>
                     
-                    <div class="row mb-4">
-                        <div class="col-md-4">
-                            <div class="stat-card bg-light">
-                                <h5 class="text-muted small">Globales Box Office 2024</h5>
-                                <div class="fw-bold fs-4">$34.2 Mrd.</div>
+                    <div class="content-body">
+                        <p class="lead">Watch our latest analysis on market trends and exclusive interviews.</p>
+                        
+                        <div class="card mb-4 shadow-sm">
+                            <div class="video-ad-slot" style="min-height: 400px; background: #000; position: relative;">
+                                <div class="text-center">
+                                    <i class="fas fa-play fa-3x mb-3 text-white"></i>
+                                    <p class="text-white">Video Player Loading...</p>
+                                    <small class="text-white-50">Target Slot for Google Video Ads (Instream/Outstream)</small>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5>The Future of Cinema Distribution</h5>
+                                <p class="small text-muted">Analyzing the Q4 2025 projections.</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="stat-card bg-light">
-                                <h5 class="text-muted small">Streaming Anteil</h5>
-                                <div class="fw-bold fs-4">58%</div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="video-ad-slot" style="height: 200px;">Video Ad Slot</div>
+                                    <div class="card-body p-2">
+                                        <h6 class="mb-0">Tech Trends</h6>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stat-card bg-light">
-                                <h5 class="text-muted small">China Markt</h5>
-                                <div class="fw-bold fs-4">-12% YoY</div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="video-ad-slot" style="height: 200px;">Video Ad Slot</div>
+                                    <div class="card-body p-2">
+                                        <h6 class="mb-0">Legal Updates</h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <p>Ein Film gilt in Hollywood traditionell als profitabel, wenn er das <strong>2,5-fache</strong> seines Produktionsbudgets an den weltweiten Kinokassen einspielt. Warum? Weil die Kinos etwa 50% der Einnahmen behalten und Marketingkosten (P&A) oft dem Produktionsbudget entsprechen.</p>
+                <div id="page-contact" class="page-section">
+                    <span class="badge bg-primary badge-category">Corporate</span>
+                    <h1 class="mb-4">About MPK MEDIA</h1>
+                    
+                    <div class="content-body">
+                        <p>MPK MEDIA is a premier digital publisher focused on the intersection of finance, law, and the entertainment industry. Our mission is to provide transparency to the opaque world of Hollywood accounting.</p>
 
-                    <h3 class="mt-4">Die neue Realität: PVOD</h3>
-                    <p>Premium Video on Demand (PVOD) hat die Gleichung verändert. Da Studios bei digitalen Verkäufen 80% der Einnahmen behalten (im Vergleich zu 50% im Kino), können Filme mit niedrigeren Kinoeinnahmen früher in die Gewinnzone gelangen, wenn sie eine starke digitale Performance zeigen.</p>
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <h5>Contact Us</h5>
+                                <p>For editorial inquiries, advertising opportunities, or corrections, please contact our team.</p>
+                                <ul class="list-unstyled">
+                                    <li><strong>Email:</strong> contact@mpk-media.de</li>
+                                    <li><strong>Phone:</strong> +1 (480) 555-0123</li>
+                                </ul>
+                                
+                                <h5 class="mt-4">Headquarters</h5>
+                                <address>
+                                    <strong>MPK MEDIA LLC</strong><br>
+                                    7125 E Flossmoor Ave<br>
+                                    MESA, AZ 85208<br>
+                                    United States<br>
+                                    <small class="text-muted">Entity ID: 23919705</small>
+                                </address>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 bg-light rounded border">
+                                    <h6>Send us a message</h6>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Email</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small">Message</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-sm">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
-            <!-- SIDEBAR (PERSISTENT) -->
             <div class="col-lg-4">
                 <div class="sticky-top" style="top: 20px;">
-                    <div class="ad-container sidebar-ad">
-                        <span class="ad-label">Anzeige</span>
-                        <span>Google AdSense (300x250)</span>
+                    
+                    <div class="ad-wrapper sidebar-ad">
+                        <span class="ad-label">Advertisement</span>
+                        <div class="text-muted small">Google AdSense (300x250)</div>
                     </div>
 
-                    <div class="card mb-4">
-                        <div class="card-header bg-white fw-bold">Trendanalysen</div>
+                    <div class="card mb-4 border-0 shadow-sm bg-white">
+                        <div class="card-header bg-white fw-bold border-bottom py-3">Financial Glossary</div>
+                        <div class="card-body p-0">
+                            <div class="accordion accordion-flush" id="glossaryAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#term1">
+                                            Above the Line
+                                        </button>
+                                    </h2>
+                                    <div id="term1" class="accordion-collapse collapse" data-bs-parent="#glossaryAccordion">
+                                        <div class="accordion-body small text-muted">
+                                            Costs for major talent, directors, writers, and producers. These are often fixed before production begins.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#term2">
+                                            Greenlight
+                                        </button>
+                                    </h2>
+                                    <div id="term2" class="accordion-collapse collapse" data-bs-parent="#glossaryAccordion">
+                                        <div class="accordion-body small text-muted">
+                                            The formal approval of the budget by the studio. From this point, funds ("Cash Flow") begin to move.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#term3">
+                                            Residuals
+                                        </button>
+                                    </h2>
+                                    <div id="term3" class="accordion-collapse collapse" data-bs-parent="#glossaryAccordion">
+                                        <div class="accordion-body small text-muted">
+                                            Royalties paid to actors/writers for reruns on TV or DVD sales. In streaming, often replaced by flat buyouts.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 border-0 shadow-sm">
+                        <div class="card-header bg-white fw-bold border-bottom py-3">Most Read</div>
                         <ul class="list-group list-group-flush">
-                            <!-- Update links to work with our router -->
-                            <li class="list-group-item"><a onclick="navigateTo('contracts')" class="text-decoration-none text-dark" style="cursor:pointer;">Warum der "Ehevertrag" das wichtigste Dokument in L.A. ist</a></li>
-                            <li class="list-group-item"><a onclick="navigateTo('boxoffice')" class="text-decoration-none text-dark" style="cursor:pointer;">Die steuerlichen Auswirkungen von Dreharbeiten in Atlanta</a></li>
-                            <li class="list-group-item"><a onclick="navigateTo('networth')" class="text-decoration-none text-dark" style="cursor:pointer;">Wie Streaming-Dienste den "Viralen Wert" berechnen</a></li>
+                            <li class="list-group-item list-group-item-action border-0 py-3">
+                                <a onclick="navigateTo('contracts')" class="text-decoration-none text-dark fw-semibold stretched-link" style="cursor:pointer;">
+                                    Why the "Prenup" is the most important document in L.A.
+                                </a>
+                                <br><small class="text-muted">Legal</small>
+                            </li>
+                            <li class="list-group-item list-group-item-action border-0 py-3">
+                                <a onclick="navigateTo('boxoffice')" class="text-decoration-none text-dark fw-semibold stretched-link" style="cursor:pointer;">
+                                    Tax Incentives: Why Marvel shoots in Atlanta
+                                </a>
+                                <br><small class="text-muted">Markets</small>
+                            </li>
+                            <li class="list-group-item list-group-item-action border-0 py-3">
+                                <a onclick="navigateTo('tech')" class="text-decoration-none text-dark fw-semibold stretched-link" style="cursor:pointer;">
+                                    AI Regulation: What the new SAG contract means
+                                </a>
+                                <br><small class="text-muted">Technology</small>
+                            </li>
                         </ul>
                     </div>
 
-                    <div class="ad-container sidebar-ad" style="height: 600px;">
-                        <span class="ad-label">Anzeige</span>
-                        <span>Google AdSense (300x600)</span>
+                    <div class="ad-wrapper sidebar-ad" style="min-height: 600px;">
+                        <span class="ad-label">Advertisement</span>
+                        <div class="text-muted small">Google AdSense (300x600)</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Cookie Consent Banner Placeholder -->
     <div class="cookie-banner" id="cookieBanner">
-        <div class="container d-flex justify-content-between align-items-center">
-            <span class="small me-3">
-                Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und die Zugriffe auf unsere Website zu analysieren. 
-                Außerdem geben wir Informationen zu Ihrer Verwendung unserer Website an unsere Partner für soziale Medien, Werbung und Analysen weiter.
-                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" class="text-primary">Mehr erfahren</a>.
-            </span>
-            <div>
-                <button class="btn btn-outline-secondary btn-sm me-2" onclick="document.getElementById('cookieBanner').style.display='none'">Ablehnen</button>
-                <button class="btn btn-primary btn-sm" onclick="document.getElementById('cookieBanner').style.display='none'">Akzeptieren</button>
-            </div>
+        <div class="d-flex flex-column">
+            <h6 class="fw-bold mb-2">Privacy & Transparency</h6>
+            <p class="small mb-0 text-muted">
+                We use cookies and similar technologies to personalize content, optimize marketing efforts, and analyze traffic. 
+                By clicking "Accept", you agree to the processing of your data by us and our partners (e.g., Google AdSense).
+                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" class="text-primary text-decoration-underline">Read Privacy Policy</a>.
+            </p>
+        </div>
+        <div class="cookie-buttons ms-md-4 mt-3 mt-md-0 d-flex gap-2 align-self-start">
+            <button class="btn btn-outline-secondary btn-sm text-nowrap" onclick="document.getElementById('cookieBanner').style.display='none'">Decline</button>
+            <button class="btn btn-primary btn-sm text-nowrap" onclick="document.getElementById('cookieBanner').style.display='none'">Accept</button>
         </div>
     </div>
 
     <footer class="legal-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="text-white">FameLedger</h5>
-                    <p>Die erste Adresse für Finanzanalysen der Unterhaltungsindustrie. Wir verfolgen Vermögen, Verträge und Geschäftsstrategien.</p>
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">MPK MEDIA</h5>
+                    <p>The leading resource for the economics of the entertainment industry. Data, analysis, and insights into the business behind the art.</p>
+                    <p class="small text-muted mt-3">A project of MPK MEDIA LLC.</p>
                 </div>
-                <div class="col-md-6 text-md-end">
+                <div class="col-md-2">
+                    <h6 class="text-white mb-3">Sections</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#impressumModal">Impressum</a></li>
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Datenschutzerklärung</a></li>
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Nutzungsbedingungen</a></li>
-                        <li><a href="#" onclick="document.getElementById('cookieBanner').style.display='flex'; return false;">Cookie-Einstellungen</a></li>
+                        <li class="mb-2"><a onclick="navigateTo('networth')" href="#">Net Worth</a></li>
+                        <li class="mb-2"><a onclick="navigateTo('contracts')" href="#">Contracts</a></li>
+                        <li class="mb-2"><a onclick="navigateTo('boxoffice')" href="#">Box Office</a></li>
+                        <li class="mb-2"><a onclick="navigateTo('streaming')" href="#">Streaming</a></li>
                     </ul>
                 </div>
+                <div class="col-md-2">
+                    <h6 class="text-white mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#impressumModal">Imprint / Impressum</a></li>
+                        <li class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" onclick="document.getElementById('cookieBanner').style.display='flex'; return false;">Cookie Settings</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="ad-wrapper m-0" style="min-height: 150px; background: rgba(255,255,255,0.05); border: none;">
+                        <span class="ad-label" style="background: rgba(255,255,255,0.2); color: #fff;">Advertisement</span>
+                        <span class="text-muted small">Footer Ad</span>
+                    </div>
+                </div>
             </div>
-            <hr class="border-secondary">
-            <div class="text-center small">
-                &copy; 2025 FameLedger Media. Alle Rechte vorbehalten. <br>
-                <span class="text-secondary d-block mt-2">
-                    <strong>Haftungsausschluss:</strong> Alle Inhalte dienen ausschließlich zu Informationszwecken. FameLedger bietet keine Steuer-, Rechts- oder Anlageberatung an.
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-secondary">
+                &copy; 2025 MPK MEDIA LLC. All Rights Reserved. <br>
+                MPK MEDIA LLC is registered in Arizona, USA (Entity ID: 23919705).<br>
+                <span class="d-block mt-2">
+                    <strong>Disclaimer:</strong> All content is for informational purposes only and does not constitute financial or legal advice.
                 </span>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Modal (Datenschutzerklärung) -->
-    <div class="modal fade" id="privacyModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Datenschutzerklärung</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>1. Datenschutz auf einen Blick</h5>
-                    <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-                    
-                    <h5>2. Cookies & Google AdSense</h5>
-                    <p>Diese Website verwendet Google AdSense, einen Dienst zum Einbinden von Werbeanzeigen der Google Inc. ("Google"). Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</p>
-                    <p>Google AdSense verwendet sogenannte "Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website ermöglichen.</p>
-                    
-                    <h5>3. Rechtsgrundlage</h5>
-                    <p>Die Verarbeitung der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) und Art. 6 Abs. 1 lit. f DSGVO (Berechtigtes Interesse an der Analyse des Nutzerverhaltens zur Optimierung des Webangebots und der Werbung).</p>
-                    
-                    <h5>4. Widerspruch gegen Datenerfassung</h5>
-                    <p>Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten Daten an Google sowie die Verarbeitung dieser Daten durch Google verhindern.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Impressum Modal (Mandatory for Germany) -->
     <div class="modal fade" id="impressumModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Impressum</h5>
+                    <h5 class="modal-title">Imprint / Impressum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+                    <h4>Information according to international standards & § 5 TMG</h4>
                     <p>
-                        FameLedger Media Inc.<br>
-                        Hauptstraße 42<br>
-                        10117 Berlin<br>
-                        Deutschland
+                        <strong>Operator of the Website:</strong><br>
+                        MPK MEDIA LLC<br>
+                        7125 E Flossmoor Ave<br>
+                        MESA, AZ 85208<br>
+                        United States (USA)
                     </p>
-                    <p><strong>Vertreten durch:</strong><br>Lukas Weber (Geschäftsführer)</p>
-                    <p><strong>Kontakt:</strong><br>
-                    Telefon: +49 30 5557891<br>
-                    E-Mail: kontakt@fameledger.de</p>
-                    <p><strong>Redaktionell verantwortlich:</strong><br>
-                    Lukas Weber<br>
-                    Hauptstraße 42<br>
-                    10117 Berlin</p>
+                    
+                    <p><strong>Contact:</strong><br>
+                    Email: contact@mpk-media.de<br>
+                    Website: www.mpk-media.de</p>
+                    
+                    <p><strong>Registration:</strong><br>
+                    Registered in the Arizona Corporation Commission<br>
+                    Entity ID: 23919705<br>
+                    Legal Form: Limited Liability Company (LLC)</p>
+                    
+                    <p><strong>Responsible for Content:</strong><br>
+                    Management Board, MPK MEDIA LLC<br>
+                    7125 E Flossmoor Ave, Mesa, AZ 85208</p>
+
+                    <p><strong>Dispute Resolution:</strong><br>
+                    The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr.<br>
+                    We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Terms of Service Modal (Nutzungsbedingungen) -->
+    <div class="modal fade" id="privacyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Privacy Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>1. General Information</h5>
+                    <p>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data with which you can be personally identified. The responsible body is MPK MEDIA LLC (see Imprint).</p>
+                    
+                    <h5>2. Hosting</h5>
+                    <p>We host the content of our website with an external provider. Personal data collected on this website is stored on the hoster's servers. This may include IP addresses, contact requests, meta and communication data, website access, and other data generated via a website.</p>
+                    
+                    <h5>3. Google AdSense & Analytics</h5>
+                    <p>This website uses Google AdSense, a service for integrating advertisements from Google Ireland Limited ("Google"). Google AdSense uses "cookies", text files stored on your computer that allow an analysis of the use of the website.</p>
+                    <p>Google AdSense also uses so-called Web Beacons (invisible graphics). Through these Web Beacons, information such as visitor traffic on these pages can be evaluated.</p>
+                    <p>The information generated by cookies and web beacons regarding the use of this website (including your IP address) and delivery of advertising formats is transmitted to a Google server in the USA and stored there. This information may be passed on by Google to Google's contractual partners.</p>
+                    
+                    <h5>4. Your Rights (GDPR/CCPA)</h5>
+                    <p>You have the right to request information about your stored personal data, its origin and recipients, and the purpose of data processing at any time and free of charge. You also have the right to request the correction or deletion of this data.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="termsModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Nutzungsbedingungen (AGB)</h5>
+                    <h5 class="modal-title">Terms of Service (ToS)</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>1. Haftung für Inhalte</h5>
-                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir übernehmen jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte, insbesondere bei Finanzanalysen.</p>
+                    <h5>1. Scope</h5>
+                    <p>These Terms of Service apply to the use of the MPK MEDIA website, operated by MPK MEDIA LLC.</p>
                     
-                    <h5>2. Finanz-Disclaimer</h5>
-                    <p>Die auf FameLedger veröffentlichten Artikel stellen keine Anlageberatung dar. Sie dienen lediglich der Information und Unterhaltung. Handlungen an der Börse oder Investitionen, die auf Inhalten dieser Seite basieren, geschehen auf eigenes Risiko.</p>
+                    <h5>2. Content Disclaimer</h5>
+                    <p>The contents of our pages were created with great care. However, we cannot guarantee the accuracy, completeness, or topicality of the content. In particular, articles regarding net worth and contracts are journalistic estimates and not binding financial data.</p>
                     
-                    <h5>3. Urheberrecht</h5>
-                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung bedürfen der schriftlichen Zustimmung.</p>
+                    <h5>3. No Financial Advice</h5>
+                    <p>The information provided on this website is for educational and entertainment purposes only. It does not constitute financial, tax, or legal advice. Users should seek professional advice before making financial decisions.</p>
+                    
+                    <h5>4. Copyright</h5>
+                    <p>The content and works created by the site operators on these pages are subject to copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator.</p>
+                    
+                    <h5>5. Jurisdiction</h5>
+                    <p>The laws of the State of Arizona, USA, apply, unless mandatory consumer protection regulations in the user's country oppose this.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Simple Router System for Single File Demo
         function navigateTo(pageId) {
-            // 1. Hide all page sections
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
+            // 1. Fade out current active section
+            const currentActive = document.querySelector('.page-section.active');
+            if(currentActive) {
+                currentActive.classList.remove('active');
+            }
+            
+            // Update Active Nav Link
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            // Find link calling this function (approximate)
+            const links = document.querySelectorAll(`a[onclick="navigateTo('${pageId}')"]`);
+            if(links.length > 0) links[0].classList.add('active');
 
             // 2. Determine target ID
             let targetId = 'page-home';
-            if (pageId === 'networth') targetId = 'page-networth';
-            if (pageId === 'contracts') targetId = 'page-contracts';
-            if (pageId === 'boxoffice') targetId = 'page-boxoffice';
+            const validPages = ['home', 'networth', 'contracts', 'boxoffice', 'streaming', 'tech', 'video', 'contact'];
+            
+            if (validPages.includes(pageId)) {
+                targetId = 'page-' + pageId;
+            }
 
-            // 3. Show target section
-            document.getElementById(targetId).classList.add('active');
+            // 3. Show target section after brief delay for smoothness
+            setTimeout(() => {
+                const target = document.getElementById(targetId);
+                if(target) target.classList.add('active');
+            }, 50);
 
             // 4. Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
 
             // 5. Close mobile menu if open
             const navBarCollapse = document.getElementById('navbarNav');
             if (navBarCollapse.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(navBarCollapse, {
-                    toggle: true
-                });
+                const bsCollapse = new bootstrap.Collapse(navBarCollapse, { toggle: true });
+                bsCollapse.hide();
             }
         }
+
+        // Handle browser back/forward buttons
+        window.onpopstate = function(event) {
+            if(event.state && event.state.page) {
+                navigateTo(event.state.page);
+            }
+        };
     </script>
 </body>
 </html>
